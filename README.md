@@ -1,24 +1,15 @@
-# README
+# YouDo Network
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Seja bem-vindo(a) a rede social que conecta pessoas baseando-se em seus interesses!
 
-Things you may want to cover:
+##### Algumas coisas necessárias para executar o projeto
 
-* Ruby version
+Para facilitar tanto o deploy, quanto o desenvolvimento, esse projeto roda sobre o Docker. Logo, todos os serviços e dependências estão contidos nesse único projeto.
 
-* System dependencies
+Para ver o YouDo Network em acão, basta executar:
 
-* Configuration
+```
+$ docker-compose up
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+E tudo certo!
