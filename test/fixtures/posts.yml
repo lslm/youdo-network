@@ -2,8 +2,8 @@
 
 one:
   users: one
-  status: MyString
+  content: MyText
 
 two:
   users: two
-  status: MyString
+  content: MyText
