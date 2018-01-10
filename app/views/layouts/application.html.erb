@@ -24,6 +24,7 @@
           <% if user_signed_in? %>
             <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "ui item" %>
           <% else %>
+            <%= link_to "Inscreva-se", new_user_registration_path, class: 'ui item' %>
             <%= link_to "Entrar", new_user_session_path, class: "ui item" %>
           <% end %>
         </div>

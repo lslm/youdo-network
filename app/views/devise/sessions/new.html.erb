@@ -2,8 +2,8 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form" }) do |f| %>
   <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :login %>
+    <%= f.text_field :login, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
