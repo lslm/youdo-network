@@ -9,16 +9,11 @@
 
   <body>
     <div class="content">
-      <div class="ui secondary  menu">
+      <div class="ui secondary menu">
         <a class="active item">
-          Home
+          Feed
         </a>
-        <a class="item">
-          Messages
-        </a>
-        <a class="item">
-          Friends
-        </a>
+        <%= link_to "Posts", posts_path, class: "item" if user_signed_in? %>
         <div class="right menu">
           <div class="item">
             <div class="ui icon input">
@@ -26,11 +21,16 @@
               <i class="search link icon"></i>
             </div>
           </div>
-          <a class="ui item">
-            Logout
-          </a>
+          <% if user_signed_in? %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "ui item" %>
+          <% else %>
+            <%= link_to "Entrar", new_user_session_path, class: "ui item" %>
+          <% end %>
         </div>
       </div>
+
+      <p id="alert"><%= alert %></p>
+      <p id="notice"><%= notice %></p>
       <%= yield %>
     </div>
   </body>
