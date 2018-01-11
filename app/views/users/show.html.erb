@@ -12,7 +12,9 @@
     <% @user.posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @user.id == current_user.id %>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -20,4 +22,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
