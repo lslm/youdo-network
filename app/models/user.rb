@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
