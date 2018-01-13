@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  searchkick
   extend FriendlyId
   friendly_id :username
 

@@ -1,5 +1,8 @@
 version: '2'
 services:
+  #elasticsearch:
+  #  image: elasticsearch
+  #  ports: ["9200:9200"]
   db:
     image: postgres
   web:
