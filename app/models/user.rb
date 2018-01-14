@@ -30,6 +30,10 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  def follows
+    active_relationships.find_by(follower_id: current_user.id)
+  end
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
