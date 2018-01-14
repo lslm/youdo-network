@@ -1,4 +1,17 @@
-<h1>Publicações de <%= current_user.first_name %></h1>
+<h1>Publicações de <%= @user.first_name %></h1>
+
+<% if current_user.id != @user.id %>
+  <% if !current_user.following?(@user)  %>
+    <%= form_for(current_user.active_relationships.build) do |f| %>
+      <%= hidden_field_tag :following_id, @user.id %>
+      <%= f.submit "Seguir" %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.active_relationships.find_by(following_id: @user.id), method: :delete) do |f| %>
+      <%= f.submit "Deixar de seguir", method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <table>
   <thead>
