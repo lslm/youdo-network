@@ -1,0 +1,4 @@
+<%= form_for( [commentable, Comment.new] , remote: true) do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
