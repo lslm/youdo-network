@@ -17,8 +17,10 @@
         <div class="right menu">
           <div class="item">
             <div class="ui icon input">
-              <input type="text" placeholder="Search...">
-              <i class="search link icon"></i>
+              <%= form_tag('/search', method: :get) do %>
+                <%= text_field_tag :term, params[:term], placeholder: 'Pesquisar' %>
+                <%= submit_tag 'Pesquisar', class: 'search link icon' %>
+              <% end %>
             </div>
           </div>
           <% if user_signed_in? %>

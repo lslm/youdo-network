@@ -1,3 +1,11 @@
+<h3>Usuários</h3>
 <% @users.each do |user| %>
   <%= user.username %>
+<% end %>
+
+<hr>
+
+<h3>Publicações</h3>
+<% @posts.each do |post| %>
+  <%= post.content %>
 <% end %>

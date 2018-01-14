@@ -16,6 +16,7 @@ module Youdo
     # -- all .rb files in that directory are automatically loaded.
     config.after_initialize do
       User.reindex
+      Post.reindex
     end
   end
 end

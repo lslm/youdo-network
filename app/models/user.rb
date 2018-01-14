@@ -1,8 +1,9 @@
 class User < ApplicationRecord
-  searchkick
   extend FriendlyId
   friendly_id :username
 
+  searchkick
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
