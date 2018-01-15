@@ -12,6 +12,7 @@ gem 'devise', '~> 4.4.0'
 gem 'semantic-ui-sass'
 gem 'friendly_id', '~> 5.1.0'
 gem 'searchkick'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
