@@ -5,7 +5,23 @@
 
 <hr>
 
-<h3>Publicações</h3>
-<% @posts.each do |post| %>
-  <%= post.content %>
-<% end %>
+<div class="ui feed">
+  <% @posts.each do |post| %>
+    <div class="event">
+      <div class="label">
+        <!-- user avatar -->
+      </div>
+      <div class="content">
+        <div class="summary">
+          <%= link_to post.user.first_name, user_path(post.user) %> fez uma publicação
+          <div class="date">
+            <%= post.created_at.strftime("%B %d, %Y") %>
+          </div>
+        </div>
+        <div class="extra text">
+          <%= post.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

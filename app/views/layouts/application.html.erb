@@ -8,11 +8,9 @@
   </head>
 
   <body>
-    <div class="content">
+    <div class="page-content">
       <div class="ui secondary menu">
-        <a class="item">
-          Feed
-        </a>
+        <%= link_to "Feed", feed_index_path, class: "item" %>
         <%= link_to "@#{ current_user.username }", user_path(current_user), class: "item" if user_signed_in? %>
         <div class="right menu">
           <div class="item">
