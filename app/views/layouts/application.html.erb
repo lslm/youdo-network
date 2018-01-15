@@ -32,9 +32,37 @@
         </div>
       </div>
 
-      <p id="alert"><%= alert %></p>
-      <p id="notice"><%= notice %></p>
+      <% if alert %>
+        <div class="ui warning message">
+          <i class="close icon"></i>
+          <div class="header">
+            Houve um problema...
+          </div>
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <% if notice %>
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <div class="header">
+            Concluído!
+          </div>
+          <%= notice %>
+        </div>
+      <% end %>
+      
       <%= yield %>
     </div>
   </body>
 </html>
+
+<script>
+  $('.message .close')
+    .on('click', function() {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+    });
+</script>
