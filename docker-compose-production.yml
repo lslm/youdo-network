@@ -1,7 +1,6 @@
-version: '2'
+version: '2.1'
+
 services:
-  db:
-    image: postgres
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0' -e production
@@ -10,4 +9,16 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      elastic:
+        condition: service_healthy
+  
+  elastic:
+    image: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:9200"]
+        interval: 20s
+        timeout: 10s
+        retries: 5
