@@ -2,22 +2,27 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: admin
-  password: admin
-  host: 192.168.101.118
-  port: 5432
 
 development:
   <<: *default
-  database: youdo_development
+  host: <%= ENV['DATABASE_DEVELOPMENT_HOST'] %>
+  port: <%= ENV['DATABASE_DEVELOPMENT_PORT'].to_i %>
+  username: <%= ENV['DATABASE_DEVELOPMENT_USERNAME'] %>
+  password: <%= ENV['DATABASE_DEVELOPMENT_PASSWORD'] %>
+  database: <%= ENV['DATABASE_DEVELOPMENT_NAME'] %>
 
 test:
   <<: *default
-  database: youdo_test
-
+  host: <%= ENV['DATABASE_TEST_HOST'] %>
+  port: <%= ENV['DATABASE_TEST_PORT'].to_i %>
+  username: <%= ENV['DATABASE_TEST_USERNAME'] %>
+  password: <%= ENV['DATABASE_TEST_PASSWORD'] %>
+  database: <%= ENV['DATABASE_TEST_NAME'] %>
 
 production:
   <<: *default
-  database: youdo_production
-  username: youdo
-  password: <%= ENV['YOUDO_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_PRODUCTION_HOST'] %>
+  port: <%= ENV['DATABASE_PRODUCTION_PORT'].to_i %>
+  username: <%= ENV['DATABASE_PRODUCTION_USERNAME'] %>
+  password: <%= ENV['DATABASE_PRODUCTION_PASSWORD'] %>
+  database: <%= ENV['DATABASE_PRODUCTION_NAME'] %>

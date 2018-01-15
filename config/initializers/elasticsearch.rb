@@ -1,1 +1,0 @@
-ENV["ELASTICSEARCH_URL"] = "http://172.24.0.1:9200"
