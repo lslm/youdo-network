@@ -2,7 +2,7 @@
   <% @posts.each do |post| %>
     <div class="event">
       <div class="label">
-        <!-- user avatar -->
+        <%= image_tag post.user.avatar.url(:thumb) %>
       </div>
       <div class="content">
         <div class="summary">
