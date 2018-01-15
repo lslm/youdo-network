@@ -9,8 +9,6 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      db:
-        condition: service_started
       elastic:
         condition: service_healthy
   
@@ -24,6 +22,3 @@ services:
         interval: 20s
         timeout: 10s
         retries: 5
-  db:
-    image: postgres
-
