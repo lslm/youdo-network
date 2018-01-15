@@ -2,9 +2,9 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: lucas
+  username: admin
   password: admin
-  host: 192.168.0.30
+  host: 192.168.101.118
   port: 5432
 
 development:
