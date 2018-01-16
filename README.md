@@ -10,10 +10,12 @@ As versão mínima recomendada para o Docker é a seguinte:
 
 ```
 Docker version 17.09.0-ce
-```
-```
 docker-compose version 1.16.1
 ```
+
+### Requisitos
+
+Para manter um desempenho satisfatório é necessário uma máquina Linux Dual Core com no mínimo 4GB de memória RAM.
 
 ##### Variáveis de ambiente
 
