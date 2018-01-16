@@ -1,16 +1,46 @@
-<h3>Usuários</h3>
-
-
-<div class="ui horizontal bulleted list">
-  <% @users.each do |user| %>
-    <div class="item">
-      <%= image_tag user.avatar.url(:thumb), class: "ui avatar image" %>
-      <div class="content">
-        <%= link_to "#{ user.first_name } #{ user.last_name }", user_path(user), class: "header" %>
-        <div class="description">@<%= user.username %></div>
-      </div>
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header">
+    <div class="ui horizontal bulleted list">
+      <% @users.each do |user| %>
+        <div class="item">
+          <%= image_tag user.avatar.url(:thumb), class: "ui avatar image" %>
+          <div class="content">
+            <%= link_to "#{ user.first_name } #{ user.last_name }", user_path(user), class: "header" %>
+            <div class="description">@<%= user.username %></div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </h2>
+  <hr>
+  <div align="center">
+    Não acho quem procurava? Veja o <a id="users-directory">diretório de usuários</a> do YouDo!
+  </div>
 </div>
 
 <%= render partial: "feed/feed", locals: { posts: @posts } %>
+    
+<div id="directory-modal" class="ui modal">
+  <div class="header">Diretório de usuários do YouDo</div>
+  <div class="scrolling content">
+    <div class="ui list">
+      <% @users_directory.each do |user| %>
+        <div class="item">
+          <%= image_tag user.avatar.url(:thumb), class: "ui avatar image" %>
+          <div class="content">
+            <%= link_to "#{user.first_name} #{user.last_name}", user_path(user), class: "header" %>
+            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#users-directory").click(function(){
+      $('#directory-modal').modal('show');
+    });
+  });
+</script>
