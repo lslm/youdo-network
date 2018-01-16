@@ -60,7 +60,7 @@ $ docker-compose run web rake db:create db:migrate
 
 ### Executando
 
-Finalmente, para ver o YouDo Network em acão, basta executar:
+Finalmente, para ver o YouDo Network em acão basta executar:
 
 ```
 $ docker-compose up
