@@ -58,6 +58,8 @@ Depois de definidas as variáveis de ambiente, rode o seguinte comando para exec
 $ docker-compose run web rake db:create db:migrate
 ```
 
+### Executando
+
 Finalmente, para ver o YouDo Network em acão, basta executar:
 
 ```
