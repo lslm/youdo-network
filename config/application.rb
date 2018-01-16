@@ -19,7 +19,9 @@ module Youdo
     end
 
     config.i18n.default_locale = 'pt-BR'
-    
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
+
     config.paperclip_defaults = {
       storage: :s3,
       s3_credentials: {
