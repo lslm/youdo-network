@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_path(current_user), notice: 'Post was successfully created.' }
+        format.html { redirect_to user_path(current_user) }
         format.json { render :index, status: :created }
       else
         format.html { render :new }
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id
       @post.destroy
       respond_to do |format|
-        format.html { redirect_to user_path(current_user), notice: 'Post was successfully destroyed.' }
+        format.html { redirect_to user_path(current_user) }
         format.json { head :no_content }
       end
     end

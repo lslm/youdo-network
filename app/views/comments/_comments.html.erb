@@ -1,4 +1,21 @@
-<h3>Comentários</h3>
+<div class="ui comments">
+  <h3 class="ui dividing header">Comentários</h3>
+  <%= render partial: 'comments/form', locals: { commentable: @post } %>
   <% @post.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %>
+    <div class="comment">
+      <a class="avatar">
+        <%= image_tag comment.user.avatar.url(:thumb) %>
+      </a>
+      <div class="content">
+        <%= link_to comment.user.username, user_path(comment.user), class: "author" %>
+        <div class="metadata">
+          <span class="date"><%= comment.created_at %></span>
+        </div>
+        <div class="text">
+          <%= comment.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

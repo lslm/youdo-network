@@ -1,8 +1,7 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, local: true, html: { class: "ui form" }) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+      <h2><%= pluralize(post.errors.count, "error") %> impedem a publicação...:</h2>
       <ul>
       <% post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,11 +11,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :post_content %>
+    <%= form.text_area :content, id: :post_content, placeholder: "Escreva algo interessante sobre você ou o que está fazendo..." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Publicar", class: "positive ui button" %>
   </div>
 <% end %>

@@ -1,0 +1,26 @@
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header">
+    Feed de publicações
+  </h2>
+  <div class="ui feed">
+    <% posts.reverse_each do |post| %>
+      <div class="event">
+        <div class="label">
+          <%= image_tag post.user.avatar.url(:thumb) %>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <%= link_to post.user.first_name, user_path(post.user) %>
+            fez uma <%= link_to "publicação", post_path(post) %>
+            <div class="date">
+              <%= post.created_at.strftime("%B %d, %Y") %>
+            </div>
+          </div>
+          <div class="extra text">
+            <%= post.content %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

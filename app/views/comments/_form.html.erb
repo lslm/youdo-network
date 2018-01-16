@@ -1,4 +1,6 @@
-<%= form_for( [commentable, Comment.new] , remote: true) do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
+<%= form_for( [commentable, Comment.new], html: { class: "ui reply form" }) do |f| %>
+  <div class="field">
+      <%= f.text_area :content, placeholder: "Adicione um comentário à essa publicação" %>
+  </div>
+  <%= f.submit "Adicionar comentário", class: "positive ui button" %>
 <% end %>

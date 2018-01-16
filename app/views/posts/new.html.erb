@@ -1,5 +1,7 @@
-<h1>Nova publicação</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<div class="eleven wide column">
+  <div class="ui text container">
+      <h1>Nova publicação</h1>
+      <%= render 'form', post: @post %>
+      <%= link_to 'Voltar', user_path(current_user) %>
+  </div>
+</div>

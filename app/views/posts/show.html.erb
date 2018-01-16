@@ -1,9 +1,12 @@
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<%= render partial: 'comments/form', locals: { commentable: @post } %>
-<%= render partial: 'comments/comments', locals: { commentable: @post } %>
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header">
+    <%= image_tag @post.user.avatar.url(:medium), class: "ui avatar image" %>
+    <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user) %>
+    <%= %>
+  </h2>
+  <p id="post_content"><%= @post.content %></p>
+  <hr>
+  <%= render partial: 'comments/comments', locals: { commentable: @post } %>
+</div>
 
 <%= link_to 'Back', posts_path %>
