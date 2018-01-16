@@ -48,9 +48,15 @@ S3_BUCKET_NAME
 AWS_REGION
 ```
 
-Extremamente importante! O projeto só será executado se a variável de ambiente ```ELASTICSEARCH_URL ``` estiver definida corretamente com o host do servidor do Elasticsearch. Exemplo dentro de um container: ```http://172.24.0.1:9200```
+Extremamente importante! O projeto só será executado se a variável de ambiente ```ELASTICSEARCH_URL ``` estiver definida corretamente com o host do servidor do Elasticsearch. Exemplo dentro de um container: ```http://172.24.0.1:9200```.
 
 Você também pode criar o arquivo ```config/local_env.yml``` e definir essas variáveis.
+
+Depois de definidas as variáveis de ambiente, rode o seguinte comando para executar as migrações
+
+```
+$ docker-compose run web rake db:create db:migrate
+```
 
 Finalmente, para ver o YouDo Network em acão, basta executar:
 
@@ -62,4 +68,4 @@ E tudo certo!
 
 ### Arquitetura
 
-O YouDo em produção utiliza os serviços RDS (com o Postgres), S3 (para upload de imagens) e EC2 (para manter o projeto em execução).
+O YouDo em produção utiliza os serviços RDS (com o Postgres), S3 (para upload de imagens) e EC2 (para manter o projeto em execução). O Elasticsearch também é usado para pesquisa avançada por usuários e publicações.
