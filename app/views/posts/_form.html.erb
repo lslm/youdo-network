@@ -14,6 +14,10 @@
     <%= form.text_area :content, id: :post_content, placeholder: "Escreva algo interessante sobre você ou o que está fazendo..." %>
   </div>
 
+  <div class="field">
+    <%= form.file_field :picture %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Publicar", class: "positive ui button" %>
   </div>

@@ -19,6 +19,11 @@
           <div class="extra text">
             <%= post.content %>
           </div>
+          <div class="extra images">
+            <% if post.picture.exists? %>
+              <%= image_tag post.picture.url(:medium) %>
+            <% end %>
+          </div>
           <div class="meta">
             <%= post.comments.size %> comentários
           </div>

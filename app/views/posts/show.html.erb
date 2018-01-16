@@ -4,7 +4,15 @@
     <%= link_to "#{@post.user.first_name} #{@post.user.last_name}", user_path(@post.user) %>
     <%= %>
   </h2>
+  
+  <% if @post.picture.exists? %>
+    <p>
+        <%= image_tag @post.picture.url(:medium), size: "600x500" %>
+    </p>    
+  <% end %>
+
   <p id="post_content"><%= @post.content %></p>
+  
   <div class="meta">
     <%= I18n.l @post.created_at, format: :long %>
   </div>

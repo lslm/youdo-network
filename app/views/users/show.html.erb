@@ -51,30 +51,8 @@
       <% if @user.id == current_user.id %>
         <%= link_to 'Nova publicação', new_post_path, class: "circular ui icon button" %>
       <% end %>
-      <div class="ui feed">
-        <% @user.posts.reverse_each do |post| %>
-          <div class="event">
-            <div class="label">
-              <%= image_tag post.user.avatar.url(:thumb) %>
-            </div>
-            <div class="content">
-              <div class="summary">
-                <%= link_to post.user.first_name, user_path(post.user) %>
-                fez uma <%= link_to "publicação", post_path(post) %>
-                <div class="date">
-                  <%= I18n.l post.created_at, format: :long %>
-                </div>
-              </div>
-              <div class="extra text">
-                <%= post.content %>
-              </div>
-              <div class="meta">
-                <%= post.comments.size %> comentários
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+
+      <%= render partial: "feed/feed", locals: { posts: @user.posts } %>
     </div>
   </div>
 </div>
