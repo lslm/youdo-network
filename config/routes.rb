@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :relationships
   resources :search, only: [:index]
-  resources :users, only: [:show] do
+  resources :users, constraints: { id: /[^\/]+/ }, only: [:show] do
     get :following, :followers
   end
 end
