@@ -52,7 +52,7 @@ Extremamente importante! O projeto só será executado se a variável de ambient
 
 Você também pode criar o arquivo ```config/local_env.yml``` e definir essas variáveis.
 
-Depois de definidas as variáveis de ambiente, rode o seguinte comando para executar as migrações
+Depois de definidas as variáveis de ambiente, rode o seguinte comando para executar as migrações:
 
 ```
 $ docker-compose run web rake db:create db:migrate
@@ -62,6 +62,11 @@ Finalmente, para ver o YouDo Network em acão, basta executar:
 
 ```
 $ docker-compose up
+```
+
+Você também pode querer executar o projeto em modo de produção. Se esse for o caso, rode:
+```
+$ docker-compose -f docker-compose-production.yml up -d
 ```
 
 E tudo certo!
