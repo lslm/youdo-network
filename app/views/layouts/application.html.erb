@@ -17,7 +17,7 @@
             <div class="ui icon input">
               <%= form_tag('/search', method: :get) do %>
                 <%= text_field_tag :term, params[:term], placeholder: 'Pesquisar' %>
-                <%= submit_tag 'Pesquisar', class: 'search link icon' %>
+                <%= submit_tag 'Pesquisar' %>
               <% end %>
             </div>
           </div>

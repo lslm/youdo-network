@@ -39,6 +39,10 @@
         <div class="field">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmação de senha" %>
         </div>
+
+        <div class="field">
+          <%= f.text_area :description, placeholder: "Fale um pouco sobre você..." %>
+        </div>
       
         <div class="actions">
           <%= f.submit "Inscrever", class: "ui positive button" %>

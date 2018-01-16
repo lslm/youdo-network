@@ -29,7 +29,7 @@
           <%= image_tag user.avatar.url(:thumb), class: "ui avatar image" %>
           <div class="content">
             <%= link_to "#{user.first_name} #{user.last_name}", user_path(user), class: "header" %>
-            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+            <div class="description"><%= user.description %></div>
           </div>
         </div>
       <% end %>

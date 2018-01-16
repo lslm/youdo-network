@@ -7,6 +7,11 @@
       </div>
       <div class="content">
         <a class="header"><%="#{@user.first_name} #{ @user.last_name }" %></a>
+        <% if current_user.id == @user.id %>
+          <%= link_to edit_registration_path(current_user), class: "circular ui icon button" do %>
+            <i class="icon settings"></i>
+          <% end %>
+        <% end %>
         <% if current_user.id != @user.id %>
           <% if !current_user.following?(@user)  %>
             <%= form_for(current_user.active_relationships.build) do |f| %>
@@ -23,7 +28,7 @@
           <span class="date">Entrou em <%= @user.created_at.strftime("%B %d, %Y") %></span>
         </div>
         <div class="description">
-          
+          <%= @user.description %>
         </div>
       </div>
       <div class="extra content">
@@ -80,7 +85,7 @@
           <%= image_tag follower.avatar.url(:thumb), class: "ui avatar image" %>
           <div class="content">
             <%= link_to "#{follower.first_name} #{follower.last_name}", user_path(follower), class: "header" %>
-            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+            <div class="description"><%= follower.description %></div>
           </div>
         </div>
       <% end %>
@@ -97,7 +102,7 @@
           <%= image_tag follow.avatar.url(:thumb), class: "ui avatar image" %>
           <div class="content">
             <%= link_to "#{follow.first_name} #{follow.last_name}", user_path(follow), class: "header" %>
-            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+            <div class="description"><%= follow.description %></div>
           </div>
         </div>
       <% end %>
