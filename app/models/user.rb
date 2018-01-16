@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: 'Relationship', dependent: :destroy, foreign_key: 'follower_id'
   has_many :passive_relationships, class_name: 'Relationship', dependent: :destroy, foreign_key: 'following_id'
-  has_many :followings, through: :active_relationships, source: :following
+  has_many :following, through: :active_relationships, source: :following
   has_many :followers, through: :passive_relationships, source: :follower
   
   devise :database_authenticatable, :registerable,
@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validate :validate_username
 
   # avatar
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def follow(user)
@@ -31,15 +31,7 @@ class User < ApplicationRecord
   end
 
   def following?(user)
-    followings.include?(user)
-  end
-
-  def following
-    followings
-  end
-
-  def followers_count
-    followers
+    following.include?(user)
   end
 
   def self.find_for_database_authentication(warden_conditions)

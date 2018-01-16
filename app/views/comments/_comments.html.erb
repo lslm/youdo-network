@@ -1,7 +1,7 @@
 <div class="ui comments">
   <h3 class="ui dividing header">Comentários</h3>
   <%= render partial: 'comments/form', locals: { commentable: @post } %>
-  <% @post.comments.each do |comment| %>
+  <% @post.comments.reverse_each do |comment| %>
     <div class="comment">
       <a class="avatar">
         <%= image_tag comment.user.avatar.url(:thumb) %>

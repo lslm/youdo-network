@@ -1,46 +1,41 @@
 <div class="ui two column doubling stackable grid container">
   <div class="five wide center aligned column">
-    <div class="ui people shape">
-      <div class="sides">
-        <div class="active side">
-          <div class="ui card">
-            <div class="image">
-              <%= image_tag @user.avatar.url(:medium) %>
-            </div>
-            <div class="content">
-              <div class="header">
-                <%= "#{@user.first_name} #{ @user.last_name }" %>
-                <% if current_user.id != @user.id %>
-                  <% if !current_user.following?(@user)  %>
-                    <%= form_for(current_user.active_relationships.build) do |f| %>
-                      <%= hidden_field_tag :following_id, @user.id %>
-                      <%= f.submit "Seguir", class: "ui mini primary basic button" %>
-                    <% end %>
-                  <% else %>
-                    <%= form_for(current_user.active_relationships.find_by(following_id: @user.id), method: :delete) do |f| %>
-                      <%= f.submit "Deixar de seguir", method: :delete, class: "ui mini negative basic button" %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="meta">
-                <a>@<%= @user.username %></a>
-              </div>
-              <div class="description">
-                
-              </div>
-            </div>
-            <div class="extra content">
-              <span class="right floated">
-                Entrou em <%= @user.created_at.strftime("%B %d, %Y") %>
-              </span>
-              <span>
-                <i class="user icon"></i>
-                <%= @user.followers_count.size %>
-              </span>
-            </div>
-          </div>
+
+    <div class="ui card">
+      <div class="image">
+        <%= image_tag @user.avatar.url(:medium) %>
+      </div>
+      <div class="content">
+        <a class="header"><%="#{@user.first_name} #{ @user.last_name }" %></a>
+        <% if current_user.id != @user.id %>
+          <% if !current_user.following?(@user)  %>
+            <%= form_for(current_user.active_relationships.build) do |f| %>
+              <%= hidden_field_tag :following_id, @user.id %>
+              <%= f.submit "Seguir", class: "ui mini primary basic button" %>
+            <% end %>
+          <% else %>
+            <%= form_for(current_user.active_relationships.find_by(following_id: @user.id), method: :delete) do |f| %>
+              <%= f.submit "Deixar de seguir", method: :delete, class: "ui mini negative basic button" %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <div class="meta">
+          <span class="date">Entrou em <%= @user.created_at.strftime("%B %d, %Y") %></span>
         </div>
+        <div class="description">
+          
+        </div>
+      </div>
+      <div class="extra content">
+        <a id="followers">
+          <i class="user icon"></i>
+          <%= @user.followers.size %> seguidores
+        </a>
+        -
+        <a id="following">
+          <i class="user icon"></i>
+          <%= @user.following.size %> seguindo
+        </a>
       </div>
     </div>
   </div>
@@ -76,4 +71,47 @@
   </div>
 </div>
 
+<div id="followers-modal" class="ui modal">
+  <div class="header"><%= @user.first_name %> é seguido por...</div>
+  <div class="scrolling content">
+    <div class="ui list">
+      <% @user.followers.each do |follower| %>
+        <div class="item">
+          <%= image_tag follower.avatar.url(:thumb), class: "ui avatar image" %>
+          <div class="content">
+            <%= link_to "#{follower.first_name} #{follower.last_name}", user_path(follower), class: "header" %>
+            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<div id="following-modal" class="ui modal">
+  <div class="header"><%= @user.first_name %> está seguindo...</div>
+  <div class="scrolling content">
+    <div class="ui list">
+      <% @user.following.each do |follow| %>
+        <div class="item">
+          <%= image_tag follow.avatar.url(:thumb), class: "ui avatar image" %>
+          <div class="content">
+            <%= link_to "#{follow.first_name} #{follow.last_name}", user_path(follow), class: "header" %>
+            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $("#followers").click(function(){
+      $('#followers-modal').modal('show');
+    });
+
+    $("#following").click(function(){
+      $('#following-modal').modal('show');
+    });
+  });
+</script>
