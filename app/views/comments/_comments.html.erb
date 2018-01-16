@@ -9,7 +9,7 @@
       <div class="content">
         <%= link_to comment.user.username, user_path(comment.user), class: "author" %>
         <div class="metadata">
-          <span class="date"><%= comment.created_at %></span>
+          <span class="date"><%= I18n.l comment.created_at, format: :long %></span>
         </div>
         <div class="text">
           <%= comment.content %>

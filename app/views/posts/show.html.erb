@@ -5,6 +5,11 @@
     <%= %>
   </h2>
   <p id="post_content"><%= @post.content %></p>
+  <div class="metadata">
+    <div class="date">
+      <%= I18n.l @post.created_at, format: :long %>
+    </div>
+  </div>
   <hr>
   <%= render partial: 'comments/comments', locals: { commentable: @post } %>
 </div>

@@ -13,7 +13,7 @@
             <%= link_to post.user.first_name, user_path(post.user) %>
             fez uma <%= link_to "publicação", post_path(post) %>
             <div class="date">
-              <%= post.created_at.strftime("%B %d, %Y") %>
+              <%= I18n.l post.created_at, format: :long %>
             </div>
           </div>
           <div class="extra text">

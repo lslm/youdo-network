@@ -25,7 +25,7 @@
           <% end %>
         <% end %>
         <div class="meta">
-          <span class="date">Entrou em <%= @user.created_at.strftime("%B %d, %Y") %></span>
+          <span class="date">Entrou em <%= I18n.l @user.created_at, format: :short %></span>
         </div>
         <div class="description">
           <%= @user.description %>
@@ -62,7 +62,7 @@
                 <%= link_to post.user.first_name, user_path(post.user) %>
                 fez uma <%= link_to "publicação", post_path(post) %>
                 <div class="date">
-                  <%= post.created_at.strftime("%B %d, %Y") %>
+                  <%= I18n.l post.created_at, format: :long %>
                 </div>
               </div>
               <div class="extra text">
