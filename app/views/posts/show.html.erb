@@ -7,7 +7,7 @@
   
   <% if @post.picture.exists? %>
     <p>
-        <%= image_tag @post.picture.url(:medium), size: "600x500" %>
+        <%= image_tag @post.picture.url(:medium), width: "600" %>
     </p>    
   <% end %>
 
