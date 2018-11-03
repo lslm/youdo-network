@@ -5,19 +5,19 @@ default: &default
 
 development:
   <<: *default
-  host: <%= ENV['DATABASE_DEVELOPMENT_HOST'] %>
-  port: <%= ENV['DATABASE_DEVELOPMENT_PORT'].to_i %>
-  username: <%= ENV['DATABASE_DEVELOPMENT_USERNAME'] %>
-  password: <%= ENV['DATABASE_DEVELOPMENT_PASSWORD'] %>
-  database: <%= ENV['DATABASE_DEVELOPMENT_NAME'] %>
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+  database: youdo_dev
 
 test:
   <<: *default
-  host: <%= ENV['DATABASE_TEST_HOST'] %>
-  port: <%= ENV['DATABASE_TEST_PORT'].to_i %>
-  username: <%= ENV['DATABASE_TEST_USERNAME'] %>
-  password: <%= ENV['DATABASE_TEST_PASSWORD'] %>
-  database: <%= ENV['DATABASE_TEST_NAME'] %>
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+  database: youdo_test
 
 production:
   <<: *default
