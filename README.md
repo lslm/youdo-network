@@ -7,19 +7,19 @@ Esse app eu uso para testar coisas novas do Ruby. Então espere por mudanças co
 Aqui vão algumas capturas de tela do projeto...
 
 Há um feed de atualizações das pessoas que você segue:
-![Feed](docs/screenshots/feed.png)
+![Feed](docs/screenshots/feed.png) <!-- .element height="50%" width="50%" -->
 
 Você também pode ver seu próprio perfil...
-![Feed](docs/screenshots/user_profile.png)
+![Feed](docs/screenshots/user_profile.png) <!-- .element height="50%" width="50%" -->
 
 E fazer uma nova publicação!
-![Feed](docs/screenshots/new_post.png)
+![Feed](docs/screenshots/new_post.png) <!-- .element height="50%" width="50%" -->
 
 Pode também pesquisar por outros usuários e posts...
-![Feed](docs/screenshots/search.png)
+![Feed](docs/screenshots/search.png) <!-- .element height="50%" width="50%" -->
 
 E visualizar e deixar comentários em publicações.
-![Feed](docs/screenshots/view_post.png)
+![Feed](docs/screenshots/view_post.png) <!-- .element height="50%" width="50%" -->
 
 
 ### Dependências
