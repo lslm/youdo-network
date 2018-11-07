@@ -11,10 +11,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.4.0'
 gem 'semantic-ui-sass'
 gem 'friendly_id', '~> 5.1.0'
-gem 'searchkick'
+gem 'searchkick', '~> 1.1', '>= 1.1.2'
 gem 'jquery-rails'
 gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
