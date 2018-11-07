@@ -14,12 +14,12 @@
         <%= link_to "@#{ current_user.username }", user_path(current_user), class: "item" if user_signed_in? %>
         <div class="right menu">
           <div class="item">
-            <div class="ui icon input">
               <%= form_tag('/search', method: :get) do %>
-                <%= text_field_tag :term, params[:term], placeholder: 'Pesquisar' %>
-                <%= submit_tag 'Pesquisar' %>
+                <div class="ui input">
+                  <%= text_field_tag :term, params[:term], placeholder: 'Pesquisar' %>
+                </div>
+                <%= submit_tag 'Pesquisar', class: "ui basic button" %>
               <% end %>
-            </div>
           </div>
           <% if user_signed_in? %>
             <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "ui item" %>
